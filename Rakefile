@@ -28,6 +28,11 @@ task "db:populate" do
   StudentsImporter.import
 end
 
+desc "reset the database"
+task "db:reset" do
+  `rake db:drop; rake db:create; rake db:migrate`
+end
+
 desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
