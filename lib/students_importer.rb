@@ -10,7 +10,6 @@ module StudentsImporter
           field_names = data
         else
           attribute_hash = Hash[field_names.zip(data)]
-          attribute_hash[:teacher_id] = rand(1..9)
           student = Student.create!(attribute_hash)
         end
       end

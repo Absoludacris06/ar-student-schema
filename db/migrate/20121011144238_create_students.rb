@@ -25,8 +25,12 @@ class CreateStudents < ActiveRecord::Migration
       t.string :email
       t.string :phone
       t.date :birthday
-      t.belongs_to :teacher
       # t.timestamps
+    end
+
+    create_table :teacher_students do |t|
+      t.belongs_to :teacher
+      t.belongs_to :students
     end
   end
 end
